@@ -5,8 +5,7 @@ import {LandingPage} from "./shared/Pages/LandingPage/LandingPage.tsx";
 import {LoginPage} from "./shared/Pages/LoginPage/LoginPage.tsx";
 import {MenuPage} from "./shared/Pages/MenuPage/MenuPage.tsx";
 import {NotFoundPage} from "./shared/Pages/NotFoundPage/NotFoundPage.tsx";
-//
-import AppointmentPage from 'appointments/AppointmentPage'
+
 
 const App = () => (
     <BrowserRouter>
@@ -15,7 +14,7 @@ const App = () => (
             <Route path="/login/sign-in" element={<LoginPage />} />
             <Route path="/login/sign-up" element={<LoginPage />} />
             <Route path="/menu" element={<MenuPage />} />
-            <Route path="/appointments" element={<AppointmentPage />} />
+
             <Route path="*" element={<NotFoundPage />} />
             </Routes>
     </BrowserRouter>
