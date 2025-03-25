@@ -1,13 +1,13 @@
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
 
-type Props = {
+type MenuPageCardProps = {
     title: string;
     icon: string;
     route: string;
 };
 
-export const MenuPageCard = ({ title, icon, route }: Props) => {
+export const MenuPageCard = ({ title, icon, route }: MenuPageCardProps) => {
     const navigate = useNavigate();
 
     return (

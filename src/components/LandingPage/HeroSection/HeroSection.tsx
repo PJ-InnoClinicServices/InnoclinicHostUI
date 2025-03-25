@@ -1,14 +1,14 @@
 import * as React from "react";
 import PlatformImage from "../../../assets/images/HeroSection-PlatformExample.png";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 type HeroSectionProps = {
     onImageLoad: () => void;
 };
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ onImageLoad }) => {
+export const HeroSection = ({ onImageLoad }: HeroSectionProps) => {
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     return (
         <section className="min-h-[80vh] flex items-center justify-center flex-wrap animate__animated animate__fadeIn">

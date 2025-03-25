@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 
 const LoginForm = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+    const [error, setError] = useState<string | null>(''); // 'error' can be a string or null
+
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();

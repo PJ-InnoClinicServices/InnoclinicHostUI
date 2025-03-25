@@ -2,10 +2,7 @@ import * as React from 'react';
 import {TopNavbarItem} from "./TopNavbarItem";
 import {LoginRegisterButtons} from "./LoginRegisterButtons";
 
-type Props = {
-
-};
-export const TopNavbar = (props: Props) => {
+export const TopNavbar = () => {
 
     const navbarItems = ["Home", "About", "Contact"];
 

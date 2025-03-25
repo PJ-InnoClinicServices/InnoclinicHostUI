@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import LoginForm from "../../../components/LoginPage/LoginForm";
 import RegisterForm from "../../../components/LoginPage/RegisterForm";
 import HeroImage from "../../../assets/images/Landing-Page-Background.png";
 import { Spinner } from "../../Components/Spinner";
 
-export const LoginPage: React.FC = () => {
+export const LoginPage = () => {
     const location = useLocation();
     const isSignUp = location.pathname.includes("sign-up");
 
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState<boolean>(true);
 
     const handleImageLoad = () => {
         setLoading(false);

@@ -1,18 +1,14 @@
-import * as React from "react";
 import { useState, useEffect } from "react";
 import { TopNavbar } from "../../../components/LandingPage/Navbar/TopNavbar";
 import { HeroSection } from "../../../components/LandingPage/HeroSection/HeroSection";
-// @ts-ignore
 import HeroImage from "../../../assets/images/Landing-Page-Background.png";
 import { Spinner } from "../../Components/Spinner";
 
-type Props = {
-    text: string;
-};
 
-export const LandingPage: React.FC<Props> = (props) => {
-    const [loading, setLoading] = useState(true);
-    const [loadedImages, setLoadedImages] = useState(0);
+export const LandingPage = () => {
+    const [loading, setLoading] = useState<boolean>(true);
+    const [loadedImages, setLoadedImages] = useState<number>(0);
+
     const totalImages = 2;
 
     const handleImageLoad = () => {
@@ -38,7 +34,7 @@ export const LandingPage: React.FC<Props> = (props) => {
                 <section className="flex flex-col h-[100vh] items-center justify-between bg relative">
                     <img
                         src={HeroImage}
-                        className="absolute max-h-full mx-auto opacity-30"
+                        className="absolute max-h-full mx-auto opacity-30 pointer-events-none"
                         alt=""
                         onLoad={handleImageLoad}
                         onError={handleImageLoad}
