@@ -9,7 +9,6 @@ import { mfConfig } from "./module-federation.config";
 
 const isDev = process.env.NODE_ENV === "development";
 
-// Target browsers, see: https://github.com/browserslist/browserslist
 const targets = ["chrome >= 87", "edge >= 88", "firefox >= 78", "safari >= 14"];
 
 export default defineConfig({
@@ -39,6 +38,10 @@ export default defineConfig({
 
   module: {
     rules: [
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        type: "asset/resource",
+      },
       {
         test: /\.svg$/,
         type: "asset",
