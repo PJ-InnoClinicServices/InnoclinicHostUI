@@ -34,7 +34,7 @@ const onRefreshed = (newToken: string) => {
     refreshSubscribers = [];
 };
 
-// Interceptor odpowiedzi – obsługuje 401 i odświeża token
+// 401 handling and getting new access token with refresh token
 api.interceptors.response.use(
     (response) => response,
     async (error) => {
@@ -45,7 +45,7 @@ api.interceptors.response.use(
                 return new Promise((resolve) => {
                     subscribeTokenRefresh((token) => {
                         originalRequest.headers.Authorization = `Bearer ${token}`;
-                        resolve(api(originalRequest)); // Ponowne żądanie po odświeżeniu tokena
+                        resolve(api(originalRequest));
                     });
                 });
             }
