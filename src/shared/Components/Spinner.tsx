@@ -1,11 +1,12 @@
+import React from "react";
 import { HashLoader } from "react-spinners";
 
-type SpinnerProps = {
+type Props = {
     loading: boolean;
     color?: string;
 };
 
-export const Spinner = ({ loading, color = "#22c55e" }: SpinnerProps) => {
+export const Spinner: React.FC<Props> = ({ loading, color = "#22c55e" }) => {
     return (
         <div className="flex items-center justify-center">
             <HashLoader

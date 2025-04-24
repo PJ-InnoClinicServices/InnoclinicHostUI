@@ -1,15 +1,16 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import LoginForm from "../../../components/LoginPage/LoginForm";
 import RegisterForm from "../../../components/LoginPage/RegisterForm";
+// @ts-ignore
 import HeroImage from "../../../assets/images/Landing-Page-Background.png";
 import { Spinner } from "../../Components/Spinner";
 
-export const LoginPage = () => {
+export const LoginPage: React.FC = () => {
     const location = useLocation();
     const isSignUp = location.pathname.includes("sign-up");
 
-    const [loading, setLoading] = useState<boolean>(true);
+    const [loading, setLoading] = useState(true);
 
     const handleImageLoad = () => {
         setLoading(false);
@@ -25,7 +26,7 @@ export const LoginPage = () => {
 
             <img
                 src={HeroImage}
-                className="absolute max-h-full mx-auto opacity-30"
+                className="absolute max-h-full mx-auto opacity-30 pointer-events-none"
                 alt=""
                 onLoad={handleImageLoad}
                 onError={handleImageLoad}

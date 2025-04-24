@@ -1,6 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Be+Vietnam+Pro:wght@100;300;400;500;700;900&display=swap');
 @import "tailwindcss";
 
-@theme  {
-    --font-bebas: 'Bebas Neue', 'sans-serif';
+@theme {
+    --font-bebas: "Bebas Neue", sans-serif;
+    --font-default: "Be Vietnam Pro", sans-serif;
+}
+body {
+    font-family: var(--font-default);
+}
+
+.bebas {
+    font-family: var(--font-bebas);
 }

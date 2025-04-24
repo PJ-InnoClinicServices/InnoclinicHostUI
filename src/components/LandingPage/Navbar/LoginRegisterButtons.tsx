@@ -1,6 +1,7 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export const LoginRegisterButtons = () => {
+export const LoginRegisterButtons: React.FC = () => {
     const navigate = useNavigate();
 
     return (

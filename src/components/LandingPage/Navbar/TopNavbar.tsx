@@ -2,6 +2,7 @@ import * as React from 'react';
 import {TopNavbarItem} from "./TopNavbarItem";
 import {LoginRegisterButtons} from "./LoginRegisterButtons";
 
+
 export const TopNavbar = () => {
 
     const navbarItems = ["Home", "About", "Contact"];
