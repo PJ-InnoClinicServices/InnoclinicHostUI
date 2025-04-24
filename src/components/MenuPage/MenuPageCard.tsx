@@ -1,18 +1,18 @@
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
 
-type MenuPageCardProps = {
+type Props = {
     title: string;
     icon: string;
     route: string;
 };
 
-export const MenuPageCard = ({ title, icon, route }: MenuPageCardProps) => {
+export const MenuPageCard = ({ title, icon, route }: Props) => {
     const navigate = useNavigate();
 
     return (
         <div
-            className="group w-56 h-56 border rounded-lg shadow-sm hover:shadow-xl flex flex-col items-center cursor-pointer transition-all duration-300 justify-center backdrop-blur-md "
+            className="group w-56 h-56 border border-gray-200 rounded-lg shadow-sm hover:shadow-xl flex flex-col items-center cursor-pointer transition-all duration-300 justify-center backdrop-blur-md "
             onClick={() => navigate(route)}
         >
             <span className="text-5xl drop-shadow-lg transition-all duration-300">{icon}</span>

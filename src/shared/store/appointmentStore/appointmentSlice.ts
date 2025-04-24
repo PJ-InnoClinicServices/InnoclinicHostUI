@@ -7,7 +7,7 @@ interface Appointment {
     id: string;
     appointmentDate: string;
     reason: string;
-    status: string;
+    status: number;
     doctorId: string;
     placeId: string;
 }
@@ -80,9 +80,9 @@ export const deleteAppointment = createAsyncThunk<void, string, { rejectValue: s
     }
 );
 
-export const filterAppointmentsByQuery = createAsyncThunk<Appointment[], string, { rejectValue: string; dispatch: AppDispatch }>(
+export const filterAppointmentsByQuery = createAsyncThunk<Appointment[], { [key: string]: string }, { rejectValue: string; dispatch: AppDispatch }>(
     "appointments/filterAppointmentsByQuery",
-    async (queryParams: string, { rejectWithValue }) => {
+    async (queryParams, { rejectWithValue }) => {
         try {
             return await filterAppointments(queryParams);
         } catch (error: any) {
@@ -118,12 +118,7 @@ const appointmentSlice = createSlice({
             })
             .addCase(fetchAppointmentById.fulfilled, (state, action) => {
                 state.loading = false;
-                const existingIndex = state.appointments.findIndex(appointment => appointment.id === action.payload.id);
-                if (existingIndex >= 0) {
-                    state.appointments[existingIndex] = action.payload;
-                } else {
-                    state.appointments.push(action.payload);
-                }
+                state.appointments = [action.payload];
             })
             .addCase(fetchAppointmentById.rejected, (state, action) => {
                 state.loading = false;

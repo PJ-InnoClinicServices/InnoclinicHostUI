@@ -1,31 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import {fetchUser, login} from "../../shared/store/userStore/userSlice";
+import { RootState, AppDispatch } from "../../shared/store/store";
 
 const LoginForm = () => {
-    const [email, setEmail] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
-    const [error, setError] = useState<string | null>(''); // 'error' can be a string or null
-
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const dispatch = useDispatch<AppDispatch>();
+    const navigate = useNavigate(); // 🔹 Hook do przekierowania
+    const { user, loading, error } = useSelector((state: RootState) => state.user);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        if (!email || !password) {
-            setError('All fields are required');
-            return;
-        }
-        console.log('Logged in:', email);
-        setEmail('');
-        setPassword('');
-        setError('');
+        dispatch(login({ email, password })).then((result) => {
+            if (login.fulfilled.match(result)) {
+                dispatch(fetchUser());
+            }
+        });
     };
 
+    useEffect(() => {
+        if (user) {
+            navigate("/menu");
+        }
+    }, [user, navigate]);
+
     return (
-        <div className="flex justify-center items-center min-h-screen ">
+        <div className="flex justify-center items-center min-h-screen">
             <form
                 onSubmit={handleSubmit}
                 className="bg-white p-8 rounded-lg shadow-lg w-96"
             >
                 <h2 className="text-2xl font-semibold text-center mb-6">Sign in</h2>
-
 
                 <div className="mb-4">
                     <label htmlFor="email" className="block text-gray-700 font-medium mb-2 text-center">
@@ -62,20 +69,16 @@ const LoginForm = () => {
                 <button
                     type="submit"
                     className="w-full py-3 bg-green-600 text-white rounded-lg hover:bg-green-800 transition-all duration-300"
+                    disabled={loading}
                 >
-                    Sign in
+                    {loading ? "Loading..." : "Sign in"}
                 </button>
 
                 <div className="mt-4 text-center">
                     <p>
                         Don't have an account?{' '}
                         <a href="/login/sign-up" className="text-green-600 hover:text-green-800 transition-all duration-300">
-                            Sign up!
-                        </a>
-                    </p>
-                    <p>
-                        <a href="/forgot-password" className="text-green-600 hover:text-green-800 transition-all duration-300">
-                            Forgot password?
+                            Sign up
                         </a>
                     </p>
                 </div>
