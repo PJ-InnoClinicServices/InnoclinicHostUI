@@ -114,6 +114,7 @@ const userSlice = createSlice({
                 state.loading = false;
                 state.error = action.payload ?? "Unknown error occurred";
             })
+            // FETCH USER DATA
             .addCase(fetchUser.pending, (state) => {
                 state.loading = true;
             })

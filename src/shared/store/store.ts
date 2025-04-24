@@ -3,6 +3,7 @@ import userReducer from "../../shared/store/userStore/userSlice.ts";
 import tokenReducer from "./tokenStore/tokenSlice.ts";
 import doctorReducer from "../../shared/store/doctorStore/doctorSlice.ts";
 import appointmentReducer from '../../shared/store/appointmentStore/appointmentSlice.ts'
+import reviewReducer from "../../shared/store/reviewStore/reviewSlice.ts";
 
 export const store = configureStore({
     reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
         token: tokenReducer,
         doctors: doctorReducer,
         appointments: appointmentReducer,
+        reviews: reviewReducer,
     },
 });
 

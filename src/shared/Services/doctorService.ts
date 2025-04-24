@@ -1,3 +1,4 @@
+// Importujemy funkcje z API
 import api from "../Config/axiosConfig.ts";
 import { API_URLS } from "../Config/api.ts";
 
