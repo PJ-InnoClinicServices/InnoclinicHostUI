@@ -89,7 +89,7 @@ const doctorSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-            // FETCH DOCTORS
+
             .addCase(fetchDoctors.pending, (state) => {
                 state.loading = true;
                 state.error = null;
@@ -102,7 +102,7 @@ const doctorSlice = createSlice({
                 state.loading = false;
                 state.error = action.payload ?? "Failed to fetch doctors";
             })
-            // FETCH DOCTOR BY ID
+
             .addCase(fetchDoctorById.pending, (state) => {
                 state.loading = true;
                 state.error = null;
@@ -115,7 +115,7 @@ const doctorSlice = createSlice({
                 state.loading = false;
                 state.error = action.payload ?? "Failed to fetch doctor";
             })
-            // ADD DOCTOR
+
             .addCase(addDoctor.pending, (state) => {
                 state.loading = true;
                 state.error = null;
@@ -128,7 +128,7 @@ const doctorSlice = createSlice({
                 state.loading = false;
                 state.error = action.payload ?? "Failed to add doctor";
             })
-            // UPDATE DOCTOR
+
             .addCase(updateDoctor.pending, (state) => {
                 state.loading = true;
                 state.error = null;
@@ -144,7 +144,7 @@ const doctorSlice = createSlice({
                 state.loading = false;
                 state.error = action.payload ?? "Failed to update doctor";
             })
-            // DELETE DOCTOR
+
             .addCase(deleteDoctor.pending, (state) => {
                 state.loading = true;
                 state.error = null;

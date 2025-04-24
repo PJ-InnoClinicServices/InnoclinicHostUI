@@ -32,7 +32,6 @@ const initialState: ReviewState = {
     error: null
 };
 
-// Akcja czyszcząca stan
 export const resetReviews = createSlice({
     name: "reviews",
     initialState,
@@ -46,7 +45,6 @@ export const resetReviews = createSlice({
     }
 });
 
-// Asynchroniczne akcje
 export const fetchReviews = createAsyncThunk("reviews/fetchAll", async (_, { rejectWithValue }) => {
     try {
         return await getReviews();
@@ -103,7 +101,6 @@ const reviewSlice = createSlice({
     name: "reviews",
     initialState,
     reducers: {
-        // Przypisujemy akcję czyszczącą stan
         clearReviews: (state) => {
             state.reviews = [];
             state.selectedReview = null;
