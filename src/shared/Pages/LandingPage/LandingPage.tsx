@@ -1,14 +1,15 @@
+import * as React from "react";
 import { useState, useEffect } from "react";
 import { TopNavbar } from "../../../components/LandingPage/Navbar/TopNavbar";
 import { HeroSection } from "../../../components/LandingPage/HeroSection/HeroSection";
+// @ts-ignore
 import HeroImage from "../../../assets/images/Landing-Page-Background.png";
 import { Spinner } from "../../Components/Spinner";
 
 
 export const LandingPage = () => {
-    const [loading, setLoading] = useState<boolean>(true);
-    const [loadedImages, setLoadedImages] = useState<number>(0);
-
+    const [loading, setLoading] = useState(true);
+    const [loadedImages, setLoadedImages] = useState(0);
     const totalImages = 2;
 
     const handleImageLoad = () => {

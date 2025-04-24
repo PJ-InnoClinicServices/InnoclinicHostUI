@@ -34,7 +34,7 @@ const onRefreshed = (newToken: string) => {
     refreshSubscribers = [];
 };
 
-// 401 handling and getting new access token with refresh token
+// Interceptor reqest – 401 i and refresh token
 api.interceptors.response.use(
     (response) => response,
     async (error) => {

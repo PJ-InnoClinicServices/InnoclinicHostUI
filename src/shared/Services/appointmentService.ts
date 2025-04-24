@@ -35,7 +35,17 @@ export const deleteAppointmentById = async (id: string) => {
     await api.delete(API_URLS.delete_appointment(id));
 };
 
-export const filterAppointments = async (queryParams: string) => {
-    const response = await api.get(API_URLS.filter_appointments(queryParams));
+export const filterAppointments = async (params: { [key: string]: string }) => {
+    let queryParams = new URLSearchParams(params).toString();
+    let url;
+    if ("patientId" in params) {
+        url = `${API_URLS.filter_appointments()}?patientId=${params.patientId}`;
+    } else if ("placeId" in params) {
+        url = `${API_URLS.filter_appointments()}?placeId=${params.placeId}`;
+    } else {
+        url = `${API_URLS.filter_appointments()}?${queryParams}`;
+    }
+    console.log("Wysyłane zapytanie:", url);
+    const response = await api.get(url);
     return response.data;
 };
